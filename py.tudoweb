@@ -1,0 +1,79 @@
+ ==========================================
+# PROJETO: PESQUISA DE SATISFAÇÃO - TUDOWEB
+# Linguagem: Python
+# ==========================================
+
+TOTAL_ENTREVISTADOS = 50
+
+excelente = 0
+bom = 0
+ruim = 0
+
+print("=" * 45)
+print("      PESQUISA DE SATISFAÇÃO - TUDOWEB")
+print("=" * 45)
+
+# Estrutura de repetição FOR
+for i in range(1, TOTAL_ENTREVISTADOS + 1):
+
+    print(f"\n--- ENTREVISTADO {i} DE {TOTAL_ENTREVISTADOS} ---")
+
+    nome = input("Digite seu nome: ")
+
+    # Validação da idade
+    while True:
+        try:
+            idade = int(input("Digite sua idade: "))
+            if idade > 0:
+                break
+            print("Digite uma idade válida.")
+        except ValueError:
+            print("Digite uma idade usando números.")
+
+    print("\nOPINIÃO SOBRE O ATENDIMENTO")
+    print("1 - EXCELENTE")
+    print("2 - BOM")
+    print("3 - RUIM")
+
+    # Validação da opinião
+    while True:
+        try:
+            opiniao = int(input("Escolha uma opção (1, 2 ou 3): "))
+            if opiniao in [1, 2, 3]:
+                break
+            print("Opção inválida! Escolha 1, 2 ou 3.")
+        except ValueError:
+            print("Digite apenas números.")
+
+    # Estrutura de decisão
+    if opiniao == 1:
+        excelente += 1
+        resposta = "EXCELENTE"
+
+    elif opiniao == 2:
+        bom += 1
+        resposta = "BOM"
+
+    else:
+        ruim += 1
+        resposta = "RUIM"
+
+    # Exibição dos dados
+    print(f"\nObrigado pela participação, {nome}!")
+    print(f"Opinião registrada: {resposta}")
+
+# RESULTADO FINAL
+print("\n" + "=" * 45)
+print("          RESULTADO DA PESQUISA")
+print("=" * 45)
+
+print(f"Total de EXCELENTE: {excelente}")
+print(f"Total de BOM:       {bom}")
+print(f"Total de RUIM:      {ruim}")
+
+print("-" * 45)
+print(f"Total de entrevistados: {excelente + bom + ruim}")
+print("=" * 45)
+
+print("\nPesquisa finalizada com sucesso!")
+
